@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html ng-app>
+<head>
+    <title>To do list</title>
+    <script src="../Scripts/angular.min.js"></script>
+    <script src="//use.edgefonts.net/vast-shadow:n4:all.js"></script>
+    <script src="//use.edgefonts.net/vast-shadow:n4:all;megrim.js"></script>
+    <link type="text/css" rel="stylesheet" href="../Styles/todo.css"/>
+    <script src="../Scripts/todo.js"></script>
+</head>
+<body>
+    <div class="todo-wrapper" ng-controller="TodoCtrl">
+        <h2>{{info.id}} got <span class="emphasis">{{getTotalTodos()}}</span> things to do</h2>
+        <ul>
+            <li ng-repeat="todo in todos">
+                <input type="checkbox" ng-model="todo.done" ng-change="check(todo)" />
+                <span class="done-{{todo.done}}">{{todo.text}}</span>
+            </li>
+        </ul>
+        <form>
+            <input class="add-input" placeholder="I need to..." type="text" ng-model="formTodoText" ng-model-instant />
+            <button class="add-btn" ng-click="addTodo()"><h2>Add</h2></button>
+        </form>
+
+        <button class="clear-btn" ng-click="clearCompleted()">Clear completed</button>
+    </div>
+</body>
+
+</html>
